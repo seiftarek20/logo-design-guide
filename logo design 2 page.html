@@ -1,0 +1,1071 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>دليل تصميم اللوجو للمبتدئين والمحترفين</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Font (اختياري) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-dark: #050816;
+            --bg-card: #0f172a;
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.12);
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border-subtle: rgba(148, 163, 184, 0.25);
+            --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.9);
+            --radius-xl: 22px;
+            --radius-full: 999px;
+            --transition-fast: 0.2s ease-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1d2538 0, #050816 45%, #020617 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.85;
+            overflow-x: hidden;
+            font-size: 15px; /* 👈 كبرت الفونت الأساسي */
+        }
+
+        /* ===== Layout ===== */
+
+        .noise-overlay {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            opacity: 0.12;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            mix-blend-mode: soft-light;
+            z-index: 1;
+        }
+
+        .page {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px; /* 👈 كبرت عرض الصفحة */
+            margin: 0 auto;
+            padding: 40px 20px 70px; /* 👈 مسافات أكبر */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-full);
+            background: radial-gradient(circle at 30% 0, #f9fafb 0, #0ea5e9 40%, #4f46e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), 0 12px 30px rgba(15, 23, 42, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .brand-logo::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.32), transparent 60%);
+                mix-blend-mode: screen;
+            }
+
+            .brand-logo span {
+                font-weight: 800;
+                font-size: 20px;
+                color: #0b1020;
+            }
+
+        .brand-text-title {
+            font-weight: 700;
+            font-size: 19px;
+        }
+
+        .brand-text-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-btn {
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+            color: var(--text-main);
+            padding: 9px 18px;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background 0.25s ease;
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.8);
+            text-decoration: none;
+        }
+
+            .nav-btn span.icon {
+                font-size: 16px;
+            }
+
+            .nav-btn:hover {
+                transform: translateY(-2px);
+                border-color: rgba(56, 189, 248, 0.8);
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+            }
+
+        /* ===== Hero Section ===== */
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+            gap: 30px;
+            margin-bottom: 45px;
+            align-items: center;
+        }
+
+        @media (max-width: 840px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .hero-text {
+            position: relative;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            backdrop-filter: blur(12px);
+        }
+
+            .hero-kicker .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 999px;
+                background: #4ade80;
+                box-shadow: 0 0 0 5px rgba(74, 222, 128, 0.14);
+            }
+
+        .hero-title {
+            font-size: clamp(28px, 3.3vw + 10px, 40px);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+            .hero-title span.highlight {
+                background: linear-gradient(135deg, #22d3ee, #38bdf8, #818cf8);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+
+        .hero-subtitle {
+            font-size: 15px; /* 👈 كبرت النص */
+            color: var(--text-muted);
+            max-width: 560px;
+            margin-bottom: 18px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-muted);
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            border-radius: var(--radius-full);
+            border: none;
+            padding: 11px 20px;
+            color: #f9fafb;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            text-decoration: none;
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 18px 40px rgba(37, 99, 235, 0.9);
+            }
+
+        .btn-ghost {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            padding: 10px 16px;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+            transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), background 0.2s ease;
+            text-decoration: none;
+        }
+
+            .btn-ghost:hover {
+                transform: translateY(-2px);
+                border-color: rgba(56, 189, 248, 0.9);
+                color: var(--text-main);
+                background: rgba(15, 23, 42, 0.9);
+            }
+
+        .hero-note {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+            .hero-note span {
+                color: var(--accent);
+            }
+
+        /* ===== Hero Visual ===== */
+
+        .hero-visual {
+            position: relative;
+            min-height: 270px;
+            border-radius: 26px;
+            background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 60%), radial-gradient(circle at 100% 100%, rgba(79, 70, 229, 0.4), transparent 50%), #020617;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            padding: 16px 16px 18px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            animation: floatPanel 10s ease-in-out infinite; /* 👈 أنيميشن خفيفة للبنل */
+        }
+
+        .hero-frame-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .hero-frame-tabs {
+            display: flex;
+            gap: 6px;
+            font-size: 11px;
+        }
+
+        .hero-tab {
+            padding: 4px 8px;
+            border-radius: var(--radius-full);
+            border: 1px solid transparent;
+            background: rgba(15, 23, 42, 0.7);
+            color: var(--text-muted);
+        }
+
+            .hero-tab.active {
+                border-color: rgba(56, 189, 248, 0.9);
+                background: rgba(15, 23, 42, 0.9);
+                color: #e5e7eb;
+            }
+
+        .hero-canvas {
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 55%);
+            height: 220px;
+            overflow: hidden;
+        }
+
+        /* دوائر "براند" متحركة */
+
+        .logo-orbit {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-orbit-center {
+            width: 90px;
+            height: 90px;
+            border-radius: var(--radius-full);
+            background: radial-gradient(circle at 30% 0, #e5e7eb 0, #38bdf8 36%, #4f46e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+            position: relative;
+            overflow: hidden;
+            animation: floatCenter 4.8s ease-in-out infinite;
+        }
+
+            .logo-orbit-center span {
+                font-size: 22px;
+                font-weight: 900;
+                color: #020617;
+                letter-spacing: 1px;
+            }
+
+        .logo-orbit-ring {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px dashed rgba(148, 163, 184, 0.4);
+            animation: spin 22s linear infinite;
+        }
+
+        .logo-orbit-pill {
+            position: absolute;
+            min-width: 90px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            background: rgba(15, 23, 42, 0.9);
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+        }
+
+            .logo-orbit-pill span.icon {
+                font-size: 16px;
+            }
+
+        .pill-top {
+            top: 18px;
+            right: 22px;
+            animation: floatSmall 4.2s ease-in-out infinite;
+        }
+
+        .pill-bottom {
+            bottom: 18px;
+            left: 24px;
+            animation: floatSmall 5.1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes floatCenter {
+            0%, 100% {
+                transform: translateY(3px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes floatSmall {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes floatPanel {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: auto 0 0;
+            height: 95px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+            border-top: 1px solid rgba(148, 163, 184, 0.35);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            padding: 10px 12px;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        .hero-grid-item {
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.92);
+            padding: 6px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-grid-label {
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .hero-grid-value {
+            font-size: 11px;
+        }
+
+        /* ===== Sections ===== */
+
+        .section {
+            margin-bottom: 36px;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617 60%);
+            padding: 26px 26px 22px; /* 👈 مساحة أوسع */
+            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.95);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; /* 👈 أنيميشن Hover */
+        }
+
+            .section:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 1);
+                border-color: rgba(56, 189, 248, 0.5);
+            }
+
+            .section::before {
+                content: "";
+                position: absolute;
+                inset: -20%;
+                background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 55%);
+                opacity: 0.8;
+                pointer-events: none;
+            }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, #e5e7eb 0, #38bdf8 35%, #4f46e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #020617;
+            font-weight: 800;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.95);
+        }
+
+        .section-tagline {
+            font-size: 14px; /* 👈 كبرته */
+            color: var(--text-muted);
+        }
+
+        .section-body {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 840px) {
+            .section-body {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .section-text {
+            font-size: 15px; /* 👈 كبرته */
+            color: var(--text-main);
+        }
+
+            .section-text p {
+                margin-bottom: 14px; /* 👈 مسافة أكبر بين الفقرات */
+            }
+
+            .section-text ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .section-text li {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 10px; /* 👈 مسافة أكبر بين النقط */
+                align-items: flex-start;
+            }
+
+        .bullet {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            margin-top: 8px;
+            background: linear-gradient(135deg, #22d3ee, #6366f1);
+            flex-shrink: 0;
+        }
+
+        .section-visual {
+            position: relative;
+            border-radius: 18px;
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), #020617 55%);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 14px;
+            min-height: 170px;
+            overflow: hidden;
+        }
+
+        .mini-caption {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mini-chip {
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            font-size: 10px;
+        }
+
+        .image-placeholder {
+            margin-top: 4px;
+            border-radius: 14px;
+            border: 1px dashed rgba(148, 163, 184, 0.55);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.98));
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* ===== Summary Section ===== */
+
+        .summary-line {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .summary-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .summary-pill {
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            padding: 5px 12px;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        /* ===== Scroll Animation ===== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Footer ===== */
+
+        footer {
+            margin-top: 26px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <div class="page">
+        <!-- Header -->
+        <header>
+            <div class="brand">
+                <!-- تقدر تخليها .brand-logo وتحط الصورة جوّاها -->
+                <div class="logo-orbit-center" style="overflow: hidden; width:52px; height:52px;">
+                    <img src="Seif Tarek .jpg" alt="logo" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                    <div class="brand-text-title">Logo Design Guide</div>
+                    <div class="brand-text-sub">منهج عملي لتصميم لوجو احترافي</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#client" class="nav-btn">
+                    <span class="icon">❓</span>
+                    <span>أسئلة العميل</span>
+                </a>
+                <a href="#designer" class="nav-btn">
+                    <span class="icon">🎯</span>
+                    <span>تفكير المصمم</span>
+                </a>
+                <a href="#concept" class="nav-btn">
+                    <span class="icon">💡</span>
+                    <span>فكرة اللوجو</span>
+                </a>
+                <a href="#execution" class="nav-btn">
+                    <span class="icon">🖥️</span>
+                    <span>التنفيذ</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero reveal">
+            <div class="hero-text">
+                <div class="hero-kicker">
+                    <span class="dot"></span>
+                    من خبرة سنين في البراندنج والـ logo design
+                </div>
+                <h1 class="hero-title">
+                    دليل عملي علشان تعمل
+                    <span class="highlight">لوجو محترف</span>
+                    من أول سؤال لحد التسليم.
+                </h1>
+                <p class="hero-subtitle">
+                    مش بس رسم شكل حلو؛ ده System تفكير كامل: إزاي تسأل العميل، إزاي تطلع فكرة، إزاي تحوّلها لرمز بسيط وقوي، وإزاي تتأكد إنه شغال في كل الاستخدامات.
+                </p>
+                <div class="hero-tags">
+                    <div class="tag">Brand Strategy</div>
+                    <div class="tag">Logo Concept</div>
+                    <div class="tag">Visual Identity</div>
+                    <div class="tag">Client Workflow</div>
+                </div>
+                <div class="hero-cta-row">
+                    <a href="#client" class="btn-primary">
+                        ابدأ من أسئلة العميل
+                        <span>⬇️</span>
+                    </a>
+                    <a href="#summary" class="btn-ghost">
+                        شوف الخلاصة السريعة
+                    </a>
+                </div>
+                <div class="hero-note">
+                    مصمم اللوجو الشاطر بيسأل قبل ما يرسم. <span>#Logo_Thinking</span>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-frame-top">
+                    <span>Branding View • Concept Explorer</span>
+                    <div class="hero-frame-tabs">
+                        <div class="hero-tab active">Idea</div>
+                        <div class="hero-tab">Client</div>
+                        <div class="hero-tab">Mockup</div>
+                    </div>
+                </div>
+
+                <div class="hero-canvas">
+                    <div class="logo-orbit">
+                        <div class="logo-orbit-ring"></div>
+                        <div class="logo-orbit-center">
+                            <span>LOGO</span>
+                        </div>
+                        <div class="logo-orbit-pill pill-top">
+                            <span class="icon">🧠</span>
+                            <span>فكرة بسيطة + ذكية</span>
+                        </div>
+                        <div class="logo-orbit-pill pill-bottom">
+                            <span class="icon">📐</span>
+                            <span>Geometry + Grid</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-grid">
+                        <div class="hero-grid-item">
+                            <div class="hero-grid-label">الخطوة الحالية</div>
+                            <div class="hero-grid-value">استخراج الفكرة (Concept)</div>
+                        </div>
+                        <div class="hero-grid-item">
+                            <div class="hero-grid-label">تركيز البراند</div>
+                            <div class="hero-grid-value">بساطة – وضوح – اختلاف عن السوق</div>
+                        </div>
+                        <div class="hero-grid-item">
+                            <div class="hero-grid-label">Next</div>
+                            <div class="hero-grid-value">Testing على Mockups حقيقية</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Client Questions -->
+        <section class="section reveal" id="client">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-title-badge">1</div>
+                    أسئلة العميل (Client Discovery)
+                </div>
+                <div class="section-tagline">
+                    كل ما تسأل صح في الأول، تتعب أقل في التصميم بعد كده.
+                </div>
+            </div>
+
+            <div class="section-body">
+                <div class="section-text">
+                    <p>
+                        قبل ما تفتح Illustrator أو تبدأ ترسم أي خط، لازم تفهم البراند كويس. الأسئلة دي ممكن تخلي العميل يحس إنك مش مجرد “مصمم”، أنت بتفكر كـ
+                        <strong>Brand Partner</strong>.
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>عن البزنس:</strong> شركتك بتعمل إيه بالظبط؟ مين الجمهور المستهدف؟ (سن – نوع – مكان – اهتمامات).</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>عن المشكلة:</strong> إيه أكتر مشكلة بتحلوها للناس؟ وليه الناس تختارك أنت مش غيرك؟</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>عن شخصية البراند:</strong> مودرن ولا كلاسيك؟ Friendly ولا Formal؟ Luxury ولا Affordable؟</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>عن المنافسين:</strong> مين ٣ من أقوى المنافسين؟ إيه اللي يعجبه/ميغضبوش في لوجوزهم؟ عايز يبقى قريب منهم ولا مختلف؟</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>عن اللوجو نفسه:</strong> عندك فكرة مبدئية؟ في رموز/ألوان حابب تستخدمها أو تتجنبها؟ اللوجو هيستخدم فين أكتر حاجة؟</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-visual">
+                    <div class="mini-caption">
+                        <span class="mini-chip">مثال بصري</span>
+                        Meeting مع العميل لتجميع كل التفاصيل اللي هتأثر على اللوجو.
+                    </div>
+                    <div class="image-placeholder">
+                        هنا تقدر تحط صورة:
+                        <br />
+                        - لقطة من Meeting مع عميل<br />
+                        - Screenshot من Brief مكتوب<br />
+                        - صورة Moodboard فيها لوجوز منافسين
+                        <br /><br />
+                        (استبدل هذا الصندوق بصورة حقيقية فيما بعد)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Designer Thinking -->
+        <section class="section reveal" id="designer">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-title-badge">2</div>
+                    أسئلة المصمم لنفسه (Designer Thinking)
+                </div>
+                <div class="section-tagline">
+                    هنا بتحوّل كلام العميل لطريقة تفكير تصميمية منظمة.
+                </div>
+            </div>
+
+            <div class="section-body">
+                <div class="section-text">
+                    <p>
+                        بعد ما تسمع كل تفاصيل العميل، دورك إنك تصفي المعلومات دي لسؤالين تلاتة كبار في دماغك… دول اللي هيبنوا عليهم شكل اللوجو.
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>ما الرسالة الأساسية؟</strong> هل البراند عايز يوصل إحساس ثقة؟ سرعة؟ فخامة؟ مرح؟ أمان؟</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>إزاي أوصل الرسالة بأبسط شكل؟</strong> هل أقدر أستخدم شكل هندسي بسيط؟ رمز واحد واضح؟ فكرة Negative Space؟</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>هل أقدر أستخدم حرف من الاسم؟</strong> دمج حرف مع رمز ذكي غالباً بيدي لوجو سهل الحفظ.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>هل الفكرة شغالة صغيرة؟</strong> كهـ Icon في App أو في Social Profile؟ لو ضاعت التفاصيل يبقى الفكرة محتاجة تبسيط.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>هل مختلفة عن السوق؟</strong> لو شبه كل اللي في السوق، العميل مش هيفرق في دماغ الجمهور.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-visual">
+                    <div class="mini-caption">
+                        <span class="mini-chip">لوحة تفكير</span>
+                        Simplify – Clarify – Differentiate
+                    </div>
+                    <div class="image-placeholder">
+                        حط هنا صورة Concept Board:
+                        <br />
+                        - أسهم نحو كلمات: ثقة / سرعة / مرح / فخامة<br />
+                        - محاولات أولية لدمج حرف من الاسم مع شكل رمزي
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Concept Generation -->
+        <section class="section reveal" id="concept">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-title-badge">3</div>
+                    استخراج فكرة اللوجو (Concept Generation)
+                </div>
+                <div class="section-tagline">
+                    هنا بتحول الكلام والأفكار لرسومات مبدئية وسكيتشات.
+                </div>
+            </div>
+
+            <div class="section-body">
+                <div class="section-text">
+                    <p>
+                        المرحلة دي أهم من التصميم نفسه؛ لأنها اللي بتولد الأفكار. ما تستعجلش تفتح البرنامج من قبلها.
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>1. كتابة كلمات مفتاحية:</strong> اكتب كل كلمة مرتبطة بالبراند: (سرعة، ثقة، أمان، طريق، موجة، حرف S... إلخ).</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>2. عمل Mind Map:</strong> اربط الكلمات ببعض… مثلاً: "سرعة + S + سهم" → فكرة لوجو. "أمان + درع + حرف أول" → فكرة تانية.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>3. رسم 20–40 سكيتش:</strong> سكيتشات سريعة، مش مطلوب تطلع Perfect. المهم أكبر عدد ممكن من الأفكار.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>4. اختيار أفضل 3 أفكار:</strong> شوف إيه أكتر أفكار بسيطة، واضحة، قابلة للتنفيذ Vector، وغالباً تشيل البراند قدام.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-visual">
+                    <div class="mini-caption">
+                        <span class="mini-chip">سكيتشات اللوجو</span>
+                        من الورقة للقيمة الحقيقية في التصميم.
+                    </div>
+                    <div class="image-placeholder">
+                        هنا حط صورة فيها:
+                        <br />
+                        - ورقة عليها سكيتشات لوجوز مختلفة لنفس البراند<br />
+                        - كلمات مفتاحية مكتوبة جنب الرسومات
+                        <br /><br />
+                        مهم: خلي الشكل غير مثالي… عادي يكون شبه خربشة، ده الطبيعي.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Execution -->
+        <section class="section reveal" id="execution">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-title-badge">4</div>
+                    تنفيذ الفكرة وتحويلها للوجو (Vector Execution)
+                </div>
+                <div class="section-tagline">
+                    من سكيتش بسيط لشكل Vector نظيف ينفع يعيش سنين.
+                </div>
+            </div>
+
+            <div class="section-body">
+                <div class="section-text">
+                    <p>
+                        دلوقتي نبدأ الجزء التقني. هنا أنت بتتعامل كـ Logo Engineer مش مجرد رسام.
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>1. فتح Illustrator:</strong> حوّل السكيتش المختار لـ Vector باستخدام Pen Tool + Shapes + Pathfinder.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>2. التصميم بالأبيض والأسود:</strong> اشتغل من غير ألوان في الأول. لو اللوجو مش قوي وهو Black & White يبقى الفكرة محتاجة تعديل.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>3. ضبط الهندسة:</strong> استخدم دوائر، مربعات، Grid، وخلق توازن في المسافات، السُمك، والاتجاهات.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>4. اختيار الألوان:</strong> بناءً على شخصية البراند: أزرق للثقة، أخضر للصحة، أصفر للتفاؤل، أسود للفخامة… إلخ.</span>
+                        </li>
+                        <li>
+                            <span class="bullet"></span>
+                            <span><strong>5. تجربة Mockups:</strong> حط اللوجو على كارت، Website Header، App Icon، Billboard… لو شغال في كل الحالات يبقى تمام.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-visual">
+                    <div class="mini-caption">
+                        <span class="mini-chip">قبل / بعد</span>
+                        من سكيتش بسيط للوجو Vector كامل.
+                    </div>
+                    <div class="image-placeholder">
+                        حط هنا:
+                        <br />
+                        - على الشمال: صورة السكيتش الأبيض والأسود<br />
+                        - على اليمين: نفس اللوجو Vector ملون، محطوط على Mockup (كارت أو لوحة)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Summary -->
+        <section class="section reveal" id="summary">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-title-badge">5</div>
+                    الخلاصة العملية
+                </div>
+                <div class="section-tagline">
+                    Shortcut لكل اللي فوق في سطرين.
+                </div>
+            </div>
+
+            <div class="section-body" style="grid-template-columns: minmax(0, 1fr);">
+                <div class="section-text">
+                    <p class="summary-line">
+                        اللوجو الناجح مش ضربة حظ ولا مجرد Pen Tool… هو نتيجة:
+                    </p>
+                    <div class="summary-pill-row">
+                        <div class="summary-pill">فهم حقيقي للبراند والعميل</div>
+                        <div class="summary-pill">أسئلة صح قبل أي رسم</div>
+                        <div class="summary-pill">أفكار كتير → اختيار ذكي</div>
+                        <div class="summary-pill">تبسيط الفكرة لأقصى درجة</div>
+                        <div class="summary-pill">تنفيذ Vector نظيف + Geometry مظبوطة</div>
+                        <div class="summary-pill">اختبار في كل الاستخدامات والمقاسات</div>
+                    </div>
+                    <p style="margin-top: 12px;">
+                        لما تمشي بالخطوات دي، كل لوجو تعمله مش بس هيطلع “شكله حلو”؛
+                        هيبقى له معنى، عايش، وسهل يترسخ في دماغ الناس.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            كل الحقوق ترجع Eng/Seif El-Dein Tarek.
+        </footer>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+          }
+        );
+
+        revealElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
